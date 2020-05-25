@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
+import { searchMovies } from './services/movieApi';
 
 function App() {
   const [query, setQuery] = useState('');
+  const [movies, setMovies] = useState([]);
 
-  const handleSearch = (searchText) => {
+  const handleSearch = async (searchText) => {
     setQuery(searchText);
+
+    const data = await searchMovies(searchText);
+    setMovies(data.Search || []);
   };
 
   return (
@@ -15,7 +20,15 @@ function App() {
         <SearchBar onSearch={handleSearch} />
       </header>
 
-      {query && <p>Searching for "{query}"</p>}
+      {query && (
+        <ul>
+          {movies.map((movie) => (
+            <li key={movie.imdbID}>
+              {movie.Title} ({movie.Year})
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
