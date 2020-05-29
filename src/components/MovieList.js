@@ -1,0 +1,17 @@
+import React from 'react';
+import MovieCard from './MovieCard';
+
+function MovieList({ movies }) {
+  return (
+    <div>
+      <h2>Search Results</h2>
+      <div className="movie-list">
+        {movies.map((movie) => (
+          <MovieCard key={movie.imdbID} movie={movie} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default MovieList;
