@@ -111,3 +111,54 @@ h2 {
 .movie-type {
   text-transform: capitalize;
 }
+
+.details-button,
+.back-button {
+  padding: 10px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.details-button:hover,
+.back-button:hover {
+  background-color: #555;
+}
+
+.movie-details {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.details-poster {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.details-no-poster {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.details-info {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.details-info p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.back-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+}

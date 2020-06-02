@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, onSelect }) {
   const hasPoster = movie.Poster && movie.Poster !== 'N/A';
 
   return (
@@ -16,6 +16,10 @@ function MovieCard({ movie }) {
         <p>{movie.Year}</p>
         <p className="movie-type">{movie.Type}</p>
       </div>
+
+      <button className="details-button" onClick={() => onSelect(movie.imdbID)}>
+        View Details
+      </button>
     </div>
   );
 }

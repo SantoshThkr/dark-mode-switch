@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
-import { searchMovies } from './services/movieApi';
+import MovieDetails from './components/MovieDetails';
+import { searchMovies, getMovieDetails } from './services/movieApi';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleSearch = async (searchText) => {
+    setSelectedMovie(null);
+
     const data = await searchMovies(searchText);
     setMovies(data.Search || []);
+  };
+
+  const handleSelect = async (id) => {
+    const data = await getMovieDetails(id);
+    setSelectedMovie(data);
   };
 
   return (
@@ -18,7 +27,11 @@ function App() {
         <SearchBar onSearch={handleSearch} />
       </header>
 
-      {movies.length > 0 && <MovieList movies={movies} />}
+      {selectedMovie ? (
+        <MovieDetails movie={selectedMovie} onBack={() => setSelectedMovie(null)} />
+      ) : (
+        movies.length > 0 && <MovieList movies={movies} onSelect={handleSelect} />
+      )}
     </div>
   );
 }
