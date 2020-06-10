@@ -180,3 +180,47 @@ h2 {
   border: 1px solid #ebccd1;
   border-radius: 4px;
 }
+
+@media (max-width: 900px) {
+  .movie-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movie-poster,
+  .no-poster {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .movie-list {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-poster,
+  .no-poster {
+    height: 400px;
+  }
+
+  .movie-details {
+    padding: 15px;
+  }
+}
